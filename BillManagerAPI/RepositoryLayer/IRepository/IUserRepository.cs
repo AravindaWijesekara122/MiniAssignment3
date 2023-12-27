@@ -15,6 +15,7 @@ namespace RepositoryLayer.IRepository
         void AddBillToUser(int userId, ElectricityBill bill);
         IEnumerable<ElectricityBill> GetPastMonthBills(int userId);
         IEnumerable<ElectricityBill> GetLastSixMonthsBills(int userId);
+        //void LatestBillAmount(int userId);
 
     }
 }

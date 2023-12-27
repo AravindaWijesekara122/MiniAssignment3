@@ -1,0 +1,29 @@
+<p>customer-list works!</p>
+
+<!-- customer-list.component.html -->
+
+<div>
+    <h2>Customer List</h2>
+    <input type="text" placeholder="Search by Pincode or Bill Status" [(ngModel)]="searchText" />
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sort('customerId')">Customer Id</th>
+          <th (click)="sort('customerName')">Customer Name</th>
+          <th (click)="sort('pincode')">Pin-code</th>
+          <th (click)="sort('latestBillAmount')">Latest Bill Amount</th>
+          <th (click)="sort('billStatus')">Bill Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of filteredCustomers">
+          <td>{{ customer.userId }}</td>
+          <td>{{ customer.userName }}</td>
+          <td>{{ customer.pincode }}</td>
+          <td>{{ customer.latestBillAmount }}</td>
+          <td>{{ customer.billStatus}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
