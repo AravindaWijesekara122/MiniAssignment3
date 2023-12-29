@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
+import { AddBillComponent } from './components/add-bill/add-bill.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegisterCustomerComponent,
+    AddBillComponent
     
   
 
@@ -25,6 +29,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

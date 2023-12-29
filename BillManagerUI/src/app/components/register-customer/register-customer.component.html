@@ -1,1 +1,48 @@
-<p>register-customer works!</p>
+<!-- register-user.component.html -->
+
+<div class="container mt-5">
+    <h2 class="mb-4">Register New User</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name:</label>
+        <input type="text" id="customerName" class="form-control" formControlName="customerName">
+      </div>
+  
+      <div class="mb-3">
+        <label for="customerAddress" class="form-label">Customer Address:</label>
+        <input type="text" id="customerAddress" class="form-control" formControlName="customerAddress">
+      </div>
+  
+      <div class="mb-3">
+        <label for="role" class="form-label">Role:</label>
+        <select id="role" class="form-select" formControlName="role">
+          <option *ngFor="let role of getRolesKeys()" [value]="role">{{ role }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="mobileNo" class="form-label">Mobile No:</label>
+        <input type="text" id="mobileNo" class="form-control" formControlName="mobileNo">
+      </div>
+  
+      <div class="mb-3">
+        <label for="alternativeNumber" class="form-label">Alternative Number:</label>
+        <input type="text" id="alternativeNumber" class="form-control" formControlName="alternativeNumber">
+      </div>
+  
+      <div class="mb-3">
+        <label for="pincode" class="form-label">Pincode:</label>
+        <input type="text" id="pincode" class="form-control" formControlName="pincode">
+      </div>
+  
+      <div *ngIf="userForm.get('role')?.value === getRolesKeys()[1]" class="mb-3">
+        <label for="kwAllowed" class="form-label">Kw Allowed:</label>
+        <select id="kwAllowed" class="form-select" formControlName="kwAllowed">
+          <option *ngFor="let kw of getKwKeys()" [value]="kw">{{ kw }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+  
