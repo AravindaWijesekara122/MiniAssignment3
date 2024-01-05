@@ -23,14 +23,13 @@ namespace Presentation_Layer.Controllers
                 var user = _userService.GetUserById(userId);
                 if (user == null)
                 {
-                    return NotFound(); // Return 404 if user not found
+                    return NotFound();
                 }
-                return Ok(user); // Return 200 with the user data
+                return Ok(user);
             }
             catch (Exception)
-            {
-                // Log the exception
-                return StatusCode(500, "Internal Server Error"); // Return 500 for other exceptions
+            {             
+                return StatusCode(500, "Internal Server Error");
             }
         }
 
@@ -40,12 +39,11 @@ namespace Presentation_Layer.Controllers
             try
             {
                 var users = _userService.GetAllUsers();
-                return Ok(users); // Return 200 with the list of users
+                return Ok(users);
             }
             catch (Exception)
             {
-                // Log the exception
-                return StatusCode(500, "Internal Server Error"); // Return 500 for other exceptions
+                return StatusCode(500, "Internal Server Error");
             }
         }
 
@@ -55,12 +53,11 @@ namespace Presentation_Layer.Controllers
             try
             {
                 _userService.RegisterUser(user);
-                return Ok("User Added Successfully"); // Return 200 for success
+                return Ok("User Added Successfully");
             }
             catch (Exception)
             {
-                // Log the exception
-                return StatusCode(500, "Internal Server Error"); // Return 500 for other exceptions
+                return StatusCode(500, "Internal Server Error");
             }
         }
 
@@ -70,12 +67,11 @@ namespace Presentation_Layer.Controllers
             try
             {
                 _userService.AddBillToUser(userId, bill);
-                return Ok("Bill Added Successfully"); // Return 200 for success
+                return Ok("Bill Added Successfully");
             }
             catch (Exception)
             {
-                // Log the exception
-                return StatusCode(500, "Internal Server Error"); // Return 500 for other exceptions
+                return StatusCode(500, "Internal Server Error");
             }
         }
 
@@ -85,12 +81,11 @@ namespace Presentation_Layer.Controllers
             try
             {
                 var pastMonthBills = _userService.GetPastMonthBills(userId);
-                return Ok(pastMonthBills); // Return 200 with the list of past month bills
+                return Ok(pastMonthBills);
             }
             catch (Exception)
             {
-                // Log the exception
-                return StatusCode(500, "Internal Server Error"); // Return 500 for other exceptions
+                return StatusCode(500, "Internal Server Error");
             }
         }
 
@@ -100,12 +95,11 @@ namespace Presentation_Layer.Controllers
             try
             {
                 var lastSixMonthsBills = _userService.GetLastSixMonthsBills(userId);
-                return Ok(lastSixMonthsBills); // Return 200 with the list of last six months bills
+                return Ok(lastSixMonthsBills);
             }
             catch (Exception)
             {
-                // Log the exception
-                return StatusCode(500, "Internal Server Error"); // Return 500 for other exceptions
+                return StatusCode(500, "Internal Server Error");
             }
         }
     }

@@ -13,43 +13,43 @@ export class RegisterCustomerComponent {
 
   userForm: FormGroup = new FormGroup({
     customerName: new FormControl('', Validators.required),
-      customerAddress: new FormControl('', Validators.required),
-      role: new FormControl(null, Validators.required),
-      mobileNo: new FormControl('', Validators.required),
-      alternativeNumber: new FormControl('', Validators.required),
-      pincode: new FormControl('', Validators.required),
-      kwAllowed: new FormControl(null, Validators.required),
-      createdAt: new FormControl('', Validators.required),
-      updatedAt: new FormControl('', Validators.required),
-      electricityBills: new FormControl([], Validators.required)
+    customerAddress: new FormControl('', Validators.required),
+    role: new FormControl(null, Validators.required),
+    mobileNo: new FormControl('', Validators.required),
+    alternativeNumber: new FormControl('', Validators.required),
+    pincode: new FormControl('', Validators.required),
+    kwAllowed: new FormControl(null, Validators.required),
+    createdAt: new FormControl('', Validators.required),
+    updatedAt: new FormControl('', Validators.required),
+    electricityBills: new FormControl([], Validators.required)
   });
 
   // roles = Object.values(Role); // Use Object.values to get an array of enum values
   // kwAllowedValues = Object.values(KwAllowed);
-  
+
   constructor(private fb: FormBuilder) {
     this.initForm();
   }
 
-  getRolesKeys(){
-    var roleNames=[];
+  getRolesKeys() {
+    var roleNames = [];
     for (var log in Role) {
       if (isNaN(Number(log))) {
         roleNames.push(log);
-      }    
+      }
     }
     return roleNames;
   }
-  getKwKeys(){
-    var kwNames=[];
+  getKwKeys() {
+    var kwNames = [];
     for (var log in KwAllowed) {
       if (isNaN(Number(log))) {
         kwNames.push(log);
-      }    
+      }
     }
     return kwNames;
   }
-  
+
   initForm() {
     console.log(this.getRolesKeys());
     console.log(this.getKwKeys());
@@ -70,7 +70,7 @@ export class RegisterCustomerComponent {
     //let role = this.userForm.get('role').value;
     this.userForm.get('role')?.valueChanges.subscribe(role => {
       const kwAllowedControl = this.userForm.get('kwAllowed');
-      if (role === role[2]) {
+      if (role === this.getRolesKeys()[1]) {
         kwAllowedControl?.setValidators([Validators.required]);
       } else {
         kwAllowedControl?.clearValidators();
@@ -79,12 +79,14 @@ export class RegisterCustomerComponent {
     });
   }
 
+
+
   onSubmit() {
     if (this.userForm.valid) {
       const user: User = this.userForm.value;
       // Perform the registration logic (e.g., send data to the server)
       console.log('Registered User:', user);
-      
+
       this.userForm.reset();
     }
   }

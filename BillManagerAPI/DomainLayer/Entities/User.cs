@@ -15,12 +15,12 @@ namespace DomainLayer.Entities
         public UserRole Role { get; set; }
         public string MobileNo { get; set; }
         public string AlternativeNumber { get; set; }
-        public int Pincode { get; set; } // Pincode as an integer
+        public int Pincode { get; set; }
         public KWAllowed KwAllowed { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-        // Navigation property for the associated bills
+
         public ICollection<ElectricityBill>? ElectricityBills { get; set; } = new List<ElectricityBill>();
     }
 

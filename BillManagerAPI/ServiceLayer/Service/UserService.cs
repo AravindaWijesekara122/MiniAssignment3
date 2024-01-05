@@ -30,7 +30,6 @@ namespace ServiceLayer.Service
 
         public void RegisterUser(User user)
         {
-            // Add any additional business logic/validation as needed
             _userRepository.AddUser(user);
         }
 

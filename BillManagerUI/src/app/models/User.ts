@@ -11,6 +11,6 @@ export interface User {
     kwAllowed?: KwAllowed; // Only show if Role is Customer
     createdAt: Date;
     updatedAt: Date;
-    electricityBills: null;
+    electricityBills: [];
 }
 

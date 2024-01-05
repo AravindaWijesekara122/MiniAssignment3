@@ -60,7 +60,6 @@ namespace RepositoryLayer.Repository
 
         public IEnumerable<ElectricityBill> GetLastSixMonthsBills(int userId)
         {
-            // Implement logic to retrieve last six months bills
             var sixMonthsAgo = DateTime.Now.AddMonths(-6);
 
             return _dbContext.Users
